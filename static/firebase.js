@@ -116,15 +116,36 @@ async function vote(team) {
     // refresh the token and return a new one.
     try {
       const token = await createIdToken();
+      const myHeaders = new Headers();
+      myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+      myHeaders.append('Authorization', `Bearer ${token}`);
+      console.log(`Submitting vote for ${team} with token: ${token}`);
+      // Send the vote to the server
 
-      /*
-       * ++++ YOUR CODE HERE ++++
-       */
-      window.alert(`Not implemented yet!`);
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: myHeaders,
+          body: `team=${team}`,
+        });
+        if (response.ok) {
+          console.log('Vote submitted successfully!');
+          window.alert('Vote submitted successfully!');
+          window.location.reload();
+        } else {
+          console.log('Error submitting vote.');
+          window.alert('Error submitting vote. Please try again.');
+        }
+      }
+      catch (err) {
+        console.log(`Error submitting vote: ${err}`);
+        window.alert('Error submitting vote. Please try again.');
+      }
 
-    } catch (err) {
-      console.log(`Error when submitting vote: ${err}`);
-      window.alert('Something went wrong... Please try again!');
+    }
+    catch (err) {
+      console.log(`Error getting ID token: ${err}`);
+      window.alert('Failed to get ID token. Please try again.');
     }
   } else {
     window.alert('User not signed in.');

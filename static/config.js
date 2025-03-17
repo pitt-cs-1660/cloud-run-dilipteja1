@@ -14,6 +14,6 @@
  * @type {{apiKey: string, authDomain: string}}
  */
 const config = {
-  apiKey: 'AIzaSyDhwsk8AklD8Ipj26fVzYTMgrWvE8x1rgc',
-  authDomain: 'cc-spring2025.firebaseapp.com',
+  apiKey: "AIzaSyA7d64z3VAR45WsXUy3AwPtr8ul_OTTpiI",
+  authDomain: "telegram-feed101.firebaseapp.com",
 };
