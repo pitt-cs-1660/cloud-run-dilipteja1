@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Form, Request, HTTPException
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import firebase_admin
 from google.cloud import firestore
 from typing import Annotated
 import datetime
